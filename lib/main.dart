@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(
-        title: 'Ramiz Qazi',
+        title: 'Ramiz Qazi Assignment Brown Button With Image',
       ),
     );
   }
