@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widget/ItemWidget.dart';
 
 import '../widget/drawer.dart';
+import '../modals/catelog.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,15 +12,20 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dummyList = List.generate(20, (index) => CatelogModal.items[0]);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Catalog App"),
         centerTitle: true,
       ),
-      body: Center(
-        child: Container(
-          child: Text("Welcome to $days of flutter by $name"),
-        ),
+      body: ListView.builder(
+        padding: const EdgeInsets.all(18),
+        itemCount: dummyList.length,
+        itemBuilder: (context, index) {
+          return ItemWidget(
+            item: dummyList[index],
+          );
+        },
       ),
       drawer: MyDrawer(),
     );
