@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:flutter_application_1/modals/catelog.dart';
 import 'package:flutter_application_1/widget/drawer.dart';
-import 'package:flutter_application_1/widget/item_widget.dart';
+import 'package:flutter_application_1/widget/grid_item_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -48,12 +48,17 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: CatelogModal.items != null
-          ? ListView.builder(
-              padding: const EdgeInsets.all(18),
+          ? GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+              ),
               itemCount: CatelogModal.items!.length,
               itemBuilder: (context, index) {
-                return ItemWidget(
-                  item: CatelogModal.items![index],
+                final item = CatelogModal.items![index];
+                return GridItemWidget(
+                  item: item,
                 );
               },
             )
