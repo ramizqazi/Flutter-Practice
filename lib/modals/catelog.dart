@@ -5,6 +5,15 @@ import 'dart:convert';
 
 class CatelogModal {
   static List<Item>? items;
+
+  // Get Item by ID
+  static Item getById(int id) {
+    return items!.firstWhere((element) => element.id == id);
+  }
+
+  static Item getByPosition(int pos) {
+    return items![pos];
+  }
 }
 
 class Item {

@@ -38,11 +38,13 @@ class MyTheme {
             ),
         primaryTextTheme: GoogleFonts.latoTextTheme(),
         appBarTheme: AppBarTheme(
-          color: Colors.black,
-          elevation: 0.0,
-          iconTheme: IconThemeData(color: Colors.white),
-          titleTextStyle: Theme.of(context).textTheme.titleLarge,
-        ),
+            color: Colors.black,
+            elevation: 0.0,
+            iconTheme: IconThemeData(color: Colors.white),
+            titleTextStyle: Theme.of(context)
+                .textTheme
+                .titleLarge
+                ?.copyWith(color: Colors.white)),
       );
 
   // Colors

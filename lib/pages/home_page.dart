@@ -58,18 +58,19 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SafeArea(
         child: Container(
-            padding: Vx.mOnly(right: 32, left: 32, top: 32),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CatelogHeader(),
-                if (CatelogModal.items != null)
-                  Expanded(child: CatelogList().pOnly(top: 16))
-                else
-                  Expanded(
-                      child: Center(child: CircularProgressIndicator().py16())),
-              ],
-            )),
+          padding: Vx.mOnly(right: 32, left: 32, top: 32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CatelogHeader(),
+              if (CatelogModal.items != null)
+                Expanded(child: CatelogList().pOnly(top: 16))
+              else
+                Expanded(
+                    child: Center(child: CircularProgressIndicator().py16())),
+            ],
+          ),
+        ),
       ),
     );
   }

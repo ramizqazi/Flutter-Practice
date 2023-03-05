@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widget/themes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -7,12 +8,12 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.canvasColor,
       appBar: AppBar(
         title: Text('Cart'),
         centerTitle: true,
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: MyTheme.creamColor,
     );
   }
 }

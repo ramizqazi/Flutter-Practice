@@ -15,7 +15,7 @@ class CatelogList extends StatelessWidget {
       shrinkWrap: true,
       itemCount: CatelogModal.items!.length,
       itemBuilder: (context, index) {
-        final catelog = CatelogModal.items![index];
+        final catelog = CatelogModal.getByPosition(index);
         return InkWell(
           onTap: () => Navigator.push(
             context,
@@ -26,7 +26,7 @@ class CatelogList extends StatelessWidget {
             ),
           ),
           child: CatelogItem(
-            catelog: catelog,
+            catelogId: catelog.id,
           ),
         );
       },
@@ -35,19 +35,20 @@ class CatelogList extends StatelessWidget {
 }
 
 class CatelogItem extends StatelessWidget {
-  final Item catelog;
+  final int? catelogId;
 
-  const CatelogItem({super.key, required this.catelog});
+  const CatelogItem({super.key, required this.catelogId});
 
   @override
   Widget build(BuildContext context) {
+    final item = CatelogModal.getById(catelogId ?? 0);
     return VxBox(
       child: Row(
         children: [
           Hero(
-            tag: Key(catelog.id.toString()),
+            tag: Key(item.id.toString()),
             child: CatelogImage(
-              image: catelog.image ?? '',
+              image: item.image ?? '',
             ),
           ),
           Expanded(
@@ -55,19 +56,19 @@ class CatelogItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                "${catelog.name}"
+                "${item.name}"
                     .text
                     .lg
                     .color(MyTheme.darkBluishColor)
                     .bold
                     .make(),
-                "${catelog.desc}".text.textStyle(context.captionStyle).make(),
+                "${item.desc}".text.textStyle(context.captionStyle).make(),
                 10.heightBox,
                 ButtonBar(
                   alignment: MainAxisAlignment.spaceBetween,
                   buttonPadding: EdgeInsets.zero,
                   children: [
-                    "\$${catelog.price}".text.bold.xl.make(),
+                    "\$${item.price}".text.bold.xl.make(),
                     ElevatedButton(
                       onPressed: () {},
                       style: ButtonStyle(
