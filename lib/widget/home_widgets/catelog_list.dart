@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widget/add_to_cart_btn.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_application_1/widget/themes.dart';
 import 'package:flutter_application_1/modals/catelog.dart';
@@ -15,7 +16,7 @@ class CatelogList extends StatelessWidget {
       shrinkWrap: true,
       itemCount: CatelogModal.items!.length,
       itemBuilder: (context, index) {
-        final catelog = CatelogModal.getByPosition(index);
+        final catelog = CatelogModal.items![index];
         return InkWell(
           onTap: () => Navigator.push(
             context,
@@ -26,7 +27,7 @@ class CatelogList extends StatelessWidget {
             ),
           ),
           child: CatelogItem(
-            catelogId: catelog.id,
+            catelog: catelog,
           ),
         );
       },
@@ -35,20 +36,19 @@ class CatelogList extends StatelessWidget {
 }
 
 class CatelogItem extends StatelessWidget {
-  final int? catelogId;
+  final Item catelog;
 
-  const CatelogItem({super.key, required this.catelogId});
+  const CatelogItem({super.key, required this.catelog});
 
   @override
   Widget build(BuildContext context) {
-    final item = CatelogModal.getById(catelogId ?? 0);
     return VxBox(
       child: Row(
         children: [
           Hero(
-            tag: Key(item.id.toString()),
+            tag: Key(catelog.id.toString()),
             child: CatelogImage(
-              image: item.image ?? '',
+              image: catelog.image ?? '',
             ),
           ),
           Expanded(
@@ -56,29 +56,20 @@ class CatelogItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                "${item.name}"
+                "${catelog.name}"
                     .text
                     .lg
                     .color(MyTheme.darkBluishColor)
                     .bold
                     .make(),
-                "${item.desc}".text.textStyle(context.captionStyle).make(),
+                "${catelog.desc}".text.textStyle(context.captionStyle).make(),
                 10.heightBox,
                 ButtonBar(
                   alignment: MainAxisAlignment.spaceBetween,
                   buttonPadding: EdgeInsets.zero,
                   children: [
-                    "\$${item.price}".text.bold.xl.make(),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              MyTheme.darkBluishColor),
-                          shape: MaterialStateProperty.all(
-                            StadiumBorder(),
-                          )),
-                      child: "Buy".text.make(),
-                    )
+                    "\$${catelog.price}".text.bold.xl.make(),
+                    AddToCartBtn(catelog: catelog),
                   ],
                 ).pOnly(right: 8.0)
               ],

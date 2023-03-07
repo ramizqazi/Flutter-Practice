@@ -4,14 +4,20 @@
 import 'dart:convert';
 
 class CatelogModal {
+  static final cartModel = CatelogModal._internal();
+
+  CatelogModal._internal();
+
+  factory CatelogModal() => cartModel;
+
   static List<Item>? items;
 
   // Get Item by ID
-  static Item getById(int id) {
+  Item getById(int id) {
     return items!.firstWhere((element) => element.id == id);
   }
 
-  static Item getByPosition(int pos) {
+  Item getByPosition(int pos) {
     return items![pos];
   }
 }

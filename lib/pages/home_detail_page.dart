@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widget/add_to_cart_btn.dart';
 import 'package:flutter_application_1/widget/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -18,6 +19,13 @@ class HomeDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        iconTheme: context.theme.appBarTheme.iconTheme,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          icon: Icon(Icons.chevron_left),
+        ),
       ),
       backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
@@ -27,16 +35,7 @@ class HomeDetailPage extends StatelessWidget {
           buttonPadding: EdgeInsets.zero,
           children: [
             "\$${catelog.price}".text.bold.xl4.red400.make(),
-            ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(MyTheme.darkBluishColor),
-                  shape: MaterialStateProperty.all(
-                    StadiumBorder(),
-                  )),
-              child: "Buy".text.lg.make(),
-            ).wh(100, 50)
+            AddToCartBtn(catelog: catelog).wh(100, 50)
           ],
         ).p32(),
       ),
