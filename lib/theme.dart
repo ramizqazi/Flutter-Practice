@@ -7,6 +7,7 @@ class MyTheme {
         primaryColor: mainColor,
         inputDecorationTheme: const InputDecorationTheme(
           prefixIconColor: Colors.black45,
+          suffixIconColor: Colors.white,
           hintStyle: TextStyle(fontSize: 14, color: Colors.white),
           labelStyle: TextStyle(fontSize: 12, color: Colors.white),
           focusedBorder: OutlineInputBorder(
@@ -22,10 +23,10 @@ class MyTheme {
         cardColor: Colors.white,
         textTheme: Theme.of(context).textTheme.apply(
               bodyColor: darkBluishColor,
-              displayColor: darkBluishColor,
+              displayColor: mainColor,
             ),
         canvasColor: creamColor,
-        primaryTextTheme: GoogleFonts.latoTextTheme(),
+        primaryTextTheme: GoogleFonts.montserratTextTheme(),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: darkBluishColor,
         ),
