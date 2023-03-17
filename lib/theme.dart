@@ -8,21 +8,27 @@ class MyTheme {
         inputDecorationTheme: const InputDecorationTheme(
           prefixIconColor: Colors.black45,
           suffixIconColor: Colors.white,
-          hintStyle: TextStyle(fontSize: 14, color: Colors.white),
-          labelStyle: TextStyle(fontSize: 12, color: Colors.white),
+          contentPadding: EdgeInsets.zero,
+          hintStyle: TextStyle(fontSize: 12, color: Colors.white),
+          labelStyle: TextStyle(
+            fontSize: 10,
+            color: Colors.white,
+          ),
+          isDense: true,
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(4)),
-            borderSide: BorderSide(color: Colors.white, width: 0.7),
+            borderRadius: BorderRadius.zero,
+            borderSide: BorderSide.none,
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(4)),
-            borderSide: BorderSide(color: Colors.white, width: 0.7),
+            borderRadius: BorderRadius.zero,
+            borderSide: BorderSide.none,
           ),
         ),
-        fontFamily: GoogleFonts.poppins().fontFamily,
+        fontFamily: GoogleFonts.montserrat().fontFamily,
         cardColor: Colors.white,
         textTheme: Theme.of(context).textTheme.apply(
               bodyColor: darkBluishColor,
+              fontFamily: GoogleFonts.montserrat().fontFamily,
               displayColor: mainColor,
             ),
         canvasColor: creamColor,
@@ -41,7 +47,7 @@ class MyTheme {
   static ThemeData darkTheme(BuildContext context) => ThemeData(
         primaryColor: mainColor,
         brightness: Brightness.dark,
-        fontFamily: GoogleFonts.poppins().fontFamily,
+        fontFamily: GoogleFonts.montserrat().fontFamily,
         cardColor: Colors.black,
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: lightBluishColor,
@@ -50,8 +56,9 @@ class MyTheme {
         textTheme: Theme.of(context).textTheme.apply(
               bodyColor: Colors.white,
               displayColor: Colors.white,
+              fontFamily: GoogleFonts.montserrat().fontFamily,
             ),
-        primaryTextTheme: GoogleFonts.latoTextTheme(),
+        primaryTextTheme: GoogleFonts.montserratTextTheme(),
         appBarTheme: AppBarTheme(
             color: Colors.black,
             elevation: 0.0,
