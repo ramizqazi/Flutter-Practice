@@ -13,7 +13,10 @@ class HomeFeatureCard extends StatelessWidget {
       child: SizedBox(
         height: 150,
         child: Card(
-          elevation: 5,
+          elevation: 4,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Column(
