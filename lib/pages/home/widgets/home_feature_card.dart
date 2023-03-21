@@ -13,7 +13,7 @@ class HomeFeatureCard extends StatelessWidget {
       child: SizedBox(
         height: 150,
         child: Card(
-          elevation: 4,
+          elevation: 2,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),

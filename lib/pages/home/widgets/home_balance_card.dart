@@ -10,7 +10,7 @@ class HomeBalanceCard extends StatelessWidget {
       margin: const EdgeInsets.only(top: 24, bottom: 15),
       width: double.infinity,
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+        borderRadius: BorderRadius.all(Radius.circular(15)),
         image: DecorationImage(
           image: AssetImage("assets/card-bg.png"),
           fit: BoxFit.cover,
