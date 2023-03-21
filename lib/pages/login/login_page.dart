@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () => Navigator.pushNamed(context, '/home'),
           style: ButtonStyle(
             padding: const MaterialStatePropertyAll(
               EdgeInsets.symmetric(vertical: 16),

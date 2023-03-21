@@ -26,13 +26,8 @@ class MyTheme {
         ),
         fontFamily: GoogleFonts.montserrat().fontFamily,
         cardColor: Colors.white,
-        textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: darkBluishColor,
-              fontFamily: GoogleFonts.montserrat().fontFamily,
-              displayColor: mainColor,
-            ),
+        textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
         canvasColor: creamColor,
-        primaryTextTheme: GoogleFonts.montserratTextTheme(),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: darkBluishColor,
         ),
@@ -72,6 +67,7 @@ class MyTheme {
   // Colors
   static Color mainColor = const Color(0xff00D88B);
   static Color creamColor = const Color(0xfff5f5f5);
+  static Color borderColor = const Color(0xff707070);
   static Color darkCreamColor = Vx.gray900;
   static Color darkBluishColor = const Color(0xff403b58);
   static Color lightBluishColor = Vx.indigo500;
